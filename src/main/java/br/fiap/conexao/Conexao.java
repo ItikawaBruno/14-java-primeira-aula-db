@@ -13,8 +13,9 @@ public class Conexao {
 
     public static Connection conectar(){
         try{
+            Connection d =DriverManager.getConnection(URL,USERNAME,PASSWORD);
             System.out.println("Conectou!");
-            return DriverManager.getConnection(URL,USERNAME,PASSWORD);
+            return d;
         }catch(SQLException e){
             System.out.println("Erro ao conectar com banco: \n"+e);
         }
