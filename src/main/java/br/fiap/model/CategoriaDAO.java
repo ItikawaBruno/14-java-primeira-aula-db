@@ -16,11 +16,11 @@ public class CategoriaDAO {
     private String sql;
 
     public void inserir(Categoria categoria){
-        sql = "Insert into java_categoria values (?,?)";
+        sql = "Insert into java_categoria values (seqc.nextval,?)";
 
         try(Connection connection = Conexao.conectar()){
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setLong(1,categoria.getId());
+//            preparedStatement.setLong(1,categoria.getId());
             preparedStatement.setString(2,categoria.getCategoria());
             preparedStatement.execute();
         }catch (SQLException e){
